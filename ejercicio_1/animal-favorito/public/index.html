@@ -1,0 +1,134 @@
+<!--================================= 
+//Función: Formulario principal
+//=================================-->
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Meta para asegurar que el diseño sea responsivo en dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animal Favorito</title>
+    <style>
+      /* Estilos básicos para resetear márgenes y aplicar box-sizing */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* Configuración visual de la página */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #9f7ac5 100%);
+        min-height: 100vh;
+        /* Centrado del contenido */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      /* Estilos para el contenedor del formulario */
+      .container {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+      }
+
+      h1 {
+        color: #667eea;
+        margin-bottom: 10px;
+        font-size: 2.5rem;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+      }
+      /*Diseño del formulario y sus elementos*/
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      label {
+        font-size: 1.2rem;
+        color: #333;
+        font-weight: 600;
+      }
+      /* Estilos para el campo de texto con animaciones suaves */
+      input[type="text"] {
+        padding: 15px;
+        font-size: 1rem;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        outline: none;
+      }
+
+      input[type="text"]:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+      /* Estilos para el botón con efectos de hover y active */
+      button {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      .emoji {
+        font-size: 4rem;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="emoji">🐾</div>
+      <h1>Animal Favorito</h1>
+      <p>¿Cuál es tu animal favorito?</p>
+
+      <!-- Formulario encargado de eneviar el dato ingresado hacia el servidor
+      utilizando el método POST -->
+      <form action="/animal" method="POST">
+        <label for="animal">Ingresa el nombre:</label>
+
+        <!-- Campo de texto para ingresar el nombre del animal favorito -->
+        <input
+          type="text"
+          id="animal"
+          name="animal"
+          placeholder="Ej: León, Delfín, Águila..."
+          required
+          autocomplete="off"
+        />
+        <!-- Botón para enviar el formulario -->
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </body>
+</html>

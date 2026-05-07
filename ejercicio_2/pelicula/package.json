@@ -1,0 +1,19 @@
+{
+  "name": "peliculas",
+  "version": "1.0.0",
+  "description": "Aplicación simple de películas en TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/main.ts",
+    "build": "tsc",
+    "dev": "ts-node src/main.ts"
+  },
+  "keywords": ["typescript", "peliculas"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0",
+    "@types/node": "^20.0.0"
+  }
+}

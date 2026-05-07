@@ -1,0 +1,146 @@
+<!--================================= 
+//Función: Mostrar resultado
+//=================================-->
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultado - Animal Favorito</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: white;
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .emoji {
+        font-size: 5rem;
+        margin-bottom: 20px;
+        animation: bounce 1s ease infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      h1 {
+        color: #f5576c;
+        margin-bottom: 20px;
+        font-size: 2rem;
+      }
+
+      .resultado {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 3rem;
+        font-weight: bold;
+        margin: 30px 0;
+        word-wrap: break-word;
+      }
+
+      p {
+        color: #666;
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      a {
+        display: inline-block;
+        padding: 15px 40px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        text-decoration: none;
+        border-radius: 10px;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4);
+      }
+
+      a:active {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="emoji">🎉</div>
+      <h1>Tu animal favorito es:</h1>
+      <!-- Elemento donde se mostrará dinámicamente el valor enviado por el formulario -->
+      <div class="resultado" id="animalNombre">Cargando...</div>
+      <p>¡Excelente elección!</p>
+      <!-- Enlace para volver a la página principal -->
+      <a href="/">Elegir otro animal</a>
+    </div>
+
+    <script>
+      //=============================
+      //Función: Obtener el valor del animal enviado por el formulario
+      //=============================
+
+      //Obtención de los parametros presentes en la URL utilizando URLSearchParams
+      const urlParams = new URLSearchParams(window.location.search);
+      //Recuperación del valor correspondiente al parámetro "animal"
+      const animal = urlParams.get("animal");
+
+      // Eelemento HTML dondes se mostrará el resultado
+      const animalElement = document.getElementById("animalNombre");
+      // Verificación de que el valor del animal no sea nulo o vacío antes de mostrarlo
+      if (animal) {
+        //Inserción dinámica del nombre recibido
+        animalElement.textContent = animal;
+      } else {
+        //mesaje alternativo en caso de que no se reciba un valor válido
+        animalElement.textContent = "No especificado";
+      }
+    </script>
+  </body>
+</html>
